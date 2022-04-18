@@ -4,8 +4,8 @@ import '@babel/polyfill';
 
 
 //importing routes
-// import projectRoutes from './routes/projects';
-// import taskRoutes from './routes/tasks';
+import dealRoutes from './routes/deals';
+import healthcheckRoutes from './routes/healthcheck';
 // import baseRoutes from './routes/bases';
 // import products from './routes/products';
 // import './database/mongoDbDataBase';
@@ -18,8 +18,8 @@ app.use(morgan('combined'));
 app.use(json());
 
 //routes
-// app.use('/api', baseRoutes);
-// app.use('/api/projects',projectRoutes);
+app.use('/api/health', healthcheckRoutes);
+app.use('/api/deal',dealRoutes);
 // app.use('/api/tasks',taskRoutes);
 
 
