@@ -1,6 +1,6 @@
 import app from './app';
 import dotenv from 'dotenv';
-
+import '@babel/polyfill';
 
 //if (process.env.NODE_ENV === 'development') {
 	
