@@ -3,6 +3,7 @@ import * as contactController from "../controllers/contact";
 
 const router = Router();
 
-router.get('/', contactController.getConatcts);
+router.get('/', contactController.get);
+router.get('/:email/search', contactController.search);
 
 export default router;
