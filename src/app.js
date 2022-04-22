@@ -6,7 +6,7 @@ import '@babel/polyfill';
 //importing routes
 import dealRoutes from './routes/deals';
 import healthcheckRoutes from './routes/healthcheck';
-// import baseRoutes from './routes/bases';
+import conatctRoutes from './routes/conatct';
 // import products from './routes/products';
 // import './database/mongoDbDataBase';
 //initilizations
@@ -20,7 +20,7 @@ app.use(json());
 //routes
 app.use('/api/health', healthcheckRoutes);
 app.use('/api/deal',dealRoutes);
-// app.use('/api/tasks',taskRoutes);
+app.use('/api/contact',conatctRoutes);
 
 
 //app.use('/api/products',products);
