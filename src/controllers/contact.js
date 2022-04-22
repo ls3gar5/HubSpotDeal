@@ -1,4 +1,5 @@
 import { Client } from '@hubspot/api-client'
+import request from 'request-promise';
 import dotenv from 'dotenv';
 dotenv.config();
 
@@ -60,7 +61,6 @@ export async function search(req, res) {
 
     try {
         const apiResponse = await hubspotClient.crm.contacts.searchApi.doSearch(PublicObjectSearchRequest);
-        console.log(JSON.stringify(apiResponse.results, null, 2));
 
         res.json({
             data: apiResponse.results
@@ -71,4 +71,28 @@ export async function search(req, res) {
                 ? console.error(JSON.stringify(e.response, null, 2))
                 : console.error(e)
     }
+}
+
+
+export async function getProperties(req, res) {
+
+    try {
+        const apiResponse = await request({
+            method: 'GET',
+            uri: 'https://api.hubapi.com/properties/v1/contacts/properties?=${}',
+            qs:{
+                hapikey: process.env.HUBSPOT_KEY
+            }
+        });
+        var response = JSON.parse(apiResponse);
+
+        res.json({
+            data: response
+        });
+        
+    } catch (error) {
+        console.error(error);
+    }
+
+
 }
