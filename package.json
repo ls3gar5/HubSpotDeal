@@ -16,6 +16,7 @@
     "@hubspot/api-client": "^6.0.1-beta.6",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
+    "lodash": "^4.17.21",
     "morgan": "^1.10.0",
     "request": "^2.88.2",
     "request-promise": "^4.2.6"

@@ -14,6 +14,7 @@ const archived = false;
 export async function get(req, res) {
 
     try {
+
         const apiResponse = await hubspotClient.crm.contacts.basicApi.getPage(limit, after, properties, propertiesWithHistory, associations, archived);
 
         var response = JSON.stringify(apiResponse.results, null, 2);
@@ -96,3 +97,4 @@ export async function getProperties(req, res) {
 
 
 }
+
