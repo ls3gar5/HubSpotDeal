@@ -23,3 +23,14 @@ export const getLodashTest = (req, res) => {
         listOfNumbers: listOfNumbers
     });
 }
+
+export const testJava = (req, res) => {
+
+   const name = 'Carlos';
+   
+   
+   
+    return res.json({
+        TemplateLiterals: `Nombre: ${name}`
+    });
+}
