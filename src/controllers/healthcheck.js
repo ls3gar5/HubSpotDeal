@@ -7,7 +7,6 @@ export function getHealthCheck(req, res) {
     });
 }
 
-
 export const getLodashTest = (req, res) => {
 
     const emptyObject = null;
@@ -27,8 +26,6 @@ export const getLodashTest = (req, res) => {
 export const testJava = (req, res) => {
 
    const name = 'Carlos';
-   
-   
    
     return res.json({
         TemplateLiterals: `Nombre: ${name}`

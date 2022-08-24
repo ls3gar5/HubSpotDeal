@@ -7,6 +7,8 @@ import '@babel/polyfill';
 import dealRoutes from './routes/deals';
 import healthcheckRoutes from './routes/healthcheck';
 import conatctRoutes from './routes/conatct';
+import downloadRoutes from './routes/download';
+
 // import products from './routes/products';
 // import './database/mongoDbDataBase';
 //initilizations
@@ -21,6 +23,7 @@ app.use(json());
 app.use('/api/health', healthcheckRoutes);
 app.use('/api/deal',dealRoutes);
 app.use('/api/contact',conatctRoutes);
+app.use('/api/download',downloadRoutes);
 
 
 //app.use('/api/products',products);
