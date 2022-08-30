@@ -15,12 +15,15 @@
     "@babel/polyfill": "^7.12.1",
     "@hubspot/api-client": "^6.0.1-beta.6",
     "axios": "^0.27.2",
+    "convert-multiple-files": "^1.2.5",
+    "docx-pdf": "^0.0.1",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
     "lodash": "^4.17.21",
     "morgan": "^1.10.0",
     "request": "^2.88.2",
-    "request-promise": "^4.2.6"
+    "request-promise": "^4.2.6",
+    "zapoj-office-to-pdf": "^1.0.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.17.6",

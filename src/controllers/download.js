@@ -1,6 +1,12 @@
 import Fs from "fs";
 import Path from "path";
 import Axios from "axios";
+import {
+  convertWordFiles,
+  convertToBase64,
+  convertWordFileToHTML,
+} from "convert-multiple-files";
+var docxConverter = require("docx-pdf");
 
 export async function get(req, res) {
   const url =
@@ -31,25 +37,68 @@ export async function get(req, res) {
 
 export async function getTest(req, res) {
   const url =
-    "https://test-compliance-files.s3.amazonaws.com/03e1add6-d366-4cff-8f8b-28dbbf8f2cd9?AWSAccessKeyId=AKIAWL4WXHSYURIW76FW&Expires=1661310637&Signature=FfQ2aFNS%2B1mwQ9K4B3Hew8rtCCo%3D&response-content-disposition=attachment%3B%20filename%3D%22converted%2520%281%29.doc%22";
+    "https://test-compliance-files.s3.amazonaws.com/03e1add6-d366-4cff-8f8b-28dbbf8f2cd9?AWSAccessKeyId=AKIAWL4WXHSYURIW76FW&Expires=1661364592&Signature=uexMDGok9t1DMgPv1HznUH9cmSs%3D&response-content-disposition=attachment%3B%20filename%3D%22converted%2520%281%29.doc%22";
+
   const currentPtah = __dirname;
-  const path = Path.resolve("./", "files", "temp.doc");
+  const path = Path.resolve("./", "files", "TEST.docx");
 
+  //const fileIsDownload = await this.getFile(url, path);
+  await convertToPDF();
+  return res.status(200).json("File download");
+}
+
+const url =
+"https://test-compliance-files.s3.amazonaws.com/03e1add6-d366-4cff-8f8b-28dbbf8f2cd9?AWSAccessKeyId=AKIAWL4WXHSYURIW76FW&Expires=1661364592&Signature=uexMDGok9t1DMgPv1HznUH9cmSs%3D&response-content-disposition=attachment%3B%20filename%3D%22converted%2520%281%29.doc%22";
+const path = '/app/user/file'
+
+async function getFile(url, path) {
   try {
-
-    const writer = Fs.createWriteStream(path);
+   
     const response = await Axios.get(url, { responseType: "stream" });
 
     await new Promise(function (resolve, reject) {
+      const writer = Fs.createWriteStream(path);
       response.data.pipe(writer);
 
       response.data.on("end", () => {
         resolve();
       });
+
+      writer.on("error", (err) => {
+        reject(err);
+      });
     });
 
-    return res.status(201).json("File download");
+    // return res.status(201).json("File download");
+    return true;
   } catch (error) {
-    return res.status(500).json(error.message);
+    //return res.status(500).json(error.message);
+    return false;
   }
 }
+
+const convertToPDF = async () => {
+
+  const pathOrogon = Path.resolve("./", "files", "temp.doc");
+  const pathResult = Path.resolve("./", "files", "outputDoc.pdf");
+  const pathPdf = await convertWordFiles(pathOrogon, 'pdf', pathResult);
+  console.log(pathPdf);
+
+  const base64 = await convertToBase64(path);
+  console.log(base64);
+};
+
+const docxConverterToPdf = async () => {
+  await new Promise(function (resolve, reject) {
+    const pathOrogon = Path.resolve("./", "files", "temp.doc");
+    const pathResult = Path.resolve("./", "files", "outputDoc.pdf");
+    docxConverter(pathOrogon, pathResult, function (err, result) {
+      if (err) {
+        console.log(err);
+        reject(err);
+      }
+      console.log("result" + result);
+      resolve();
+    });
+  });
+};
