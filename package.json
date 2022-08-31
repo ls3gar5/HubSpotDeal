@@ -2,10 +2,11 @@
   "name": "hubspotdeal",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
-    "start": "nodemon src/index.js --exec babel-node",
-    "build": "babel src --ignore node_modules -d dist",
+    "start": "nodemon dist/index.js",
+    "dev": "nodemon",
+    "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -14,6 +15,7 @@
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
     "@hubspot/api-client": "^6.0.1-beta.6",
+    "@types/node-fetch": "^2.6.2",
     "axios": "^0.27.2",
     "convert-multiple-files": "^1.2.5",
     "docx-pdf": "^0.0.1",
@@ -23,13 +25,18 @@
     "morgan": "^1.10.0",
     "request": "^2.88.2",
     "request-promise": "^4.2.6",
-    "zapoj-office-to-pdf": "^1.0.1"
+    "tsc-watch": "^5.0.3",
+    "typescript": "^3.8.3"
   },
   "devDependencies": {
     "@babel/cli": "^7.17.6",
     "@babel/core": "^7.17.9",
     "@babel/node": "^7.16.8",
     "@babel/preset-env": "^7.16.11",
-    "nodemon": "^2.0.15"
+    "@types/express": "^4.17.13",
+    "@types/lodash": "^4.14.184",
+    "@types/morgan": "^1.9.3",
+    "nodemon": "^2.0.15",
+    "ts-node": "^10.9.1"
   }
 }
