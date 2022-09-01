@@ -1,3 +1,4 @@
+import { Request, Response } from 'express';
 import { isEmpty, each } from 'lodash';
 
 export function getHealthCheck(req: any, res: any) {
@@ -6,7 +7,7 @@ export function getHealthCheck(req: any, res: any) {
   });
 }
 
-export const getLodashTest = (req: any, res: any) => {
+export const getLodashTest = (req: Request, res: Response) => {
   const emptyObject: string = null;
 
   var isEmptyObject = isEmpty(emptyObject);
@@ -18,18 +19,23 @@ export const getLodashTest = (req: any, res: any) => {
   });
 
   return res.json({
-    message: 'Is empty LALAL object =>' + isEmptyObject,
+    message: 'Is empty object =>' + isEmptyObject,
     listOfNumbers: listOfNumbers
   });
 };
 
-export const testJava = (args: any, res: any) => {
+export const testJava = (req: Request, res: Response) => {
   const name = 'Carlos';
-
+  
   const entityToPopulate = 'Deal,Firm,UserMetadata';
+  
+  let  args: any = { test: '' };
+  // args = { queryParams: { populate: entityToPopulate } };
 
-  if (isEmpty(res)) args = { queryParams: { populate: entityToPopulate } };
-  else args.queryParams.populate = entityToPopulate;
+  if (isEmpty(args))
+   args = { queryParams: { populate: entityToPopulate } };
+  else 
+    args.queryParams.populate = entityToPopulate;
 
   return res.json({
     TemplateLiterals: `Nombre: ${name}`

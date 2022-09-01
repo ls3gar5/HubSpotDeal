@@ -1,4 +1,4 @@
-import express, {json} from 'express';
+import express, {json, Application} from 'express';
 import morgan from 'morgan';
 import '@babel/polyfill';
 
@@ -12,7 +12,7 @@ import downloadRoutes from './routes/download';
 // import products from './routes/products';
 // import './database/mongoDbDataBase';
 //initilizations
-const app = express();
+const app: Application = express();
 
 //midleware de express
 app.use(morgan('combined'));
