@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import { isEmpty, each } from 'lodash';
-
+import { getListQueues, getURLQueue } from '../services/AWSservice';
 export function getHealthCheck(req: any, res: any) {
   return res.json({
     message: 'ok!!!'
@@ -41,3 +41,59 @@ export const testJava = (req: Request, res: Response) => {
     TemplateLiterals: `Nombre: ${name}`
   });
 };
+
+
+export const getAWSListQueues = async (req: Request, res: Response) => { 
+  try {
+
+    let list: String[] = await getListQueues();
+
+    return res.json({
+      message: 'DONE!!!',
+      list: list
+    });
+
+  } catch (error) {
+    return res.json({
+      message: error
+    });
+  }
+  
+}
+
+export const getAWSUrlQueue = async (req: Request, res: Response) => { 
+  try {
+
+    let url: String = await getURLQueue();
+
+    return res.json({
+      message: 'DONE!!!',
+      url: url
+    });
+
+  } catch (error) {
+    return res.json({
+      message: error
+    });
+  }
+  
+}
+
+
+export const postmySns = async (req: Request, res: Response) => { 
+  try {
+
+    //let url: String = await getURLQueue();
+    var todo = req.params;
+    console.log('PASO POR ACA')
+    return res.json({
+      message: 'queues/mysns!!!'
+    });
+
+  } catch (error) {
+    return res.json({
+      message: error
+    });
+  }
+  
+}

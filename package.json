@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.ts",
   "scripts": {
-    "start": "nodemon dist/index.js",
-    "dev": "nodemon",
+    "dev": "nodemon dist/index.js",
+    "start": "nodemon",
     "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -16,6 +16,7 @@
     "@babel/polyfill": "^7.12.1",
     "@hubspot/api-client": "^6.0.1-beta.6",
     "@types/node-fetch": "^2.6.2",
+    "aws-sdk": "^2.1207.0",
     "axios": "^0.27.2",
     "convert-multiple-files": "^1.2.5",
     "docx-pdf": "^0.0.1",
