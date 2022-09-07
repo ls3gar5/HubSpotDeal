@@ -9,7 +9,7 @@ router.get('/javatest', healthcheck.testJava)
 
 router.get('/aws/queues/url', healthcheck.getAWSUrlQueue)
 router.get('/aws/queues/list', healthcheck.getAWSListQueues)
-router.post('/aws/queues/mysns', healthcheck.postmySns)
+router.post('/aws/queues/mysns',healthcheck.getSuscriptionUnsubscribeConfirm, healthcheck.postMessage)
 
 
 export default router;

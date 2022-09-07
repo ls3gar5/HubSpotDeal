@@ -17,7 +17,9 @@ const app: Application = express();
 //midleware de express
 app.use(morgan('combined'));
 //interpretar los request con datos json
-app.use(json());
+app.use(express.json());
+app.use(express.text());
+
 
 //routes
 app.use('/api/health', healthcheckRoutes);
