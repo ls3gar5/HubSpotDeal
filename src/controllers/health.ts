@@ -118,7 +118,7 @@ export const getSuscriptionUnsubscribeConfirm = async (
 
   var messageType = req.header('x-amz-sns-message-type');
   if (
-    messageType &&
+    !isEmpty(messageType) &&
     !(
       messageType == MESSAGE.SUBSCRIPTIONCONFIRMATION ||
       messageType == MESSAGE.UNSUBSCRIBECONFIRMATION
