@@ -29,7 +29,23 @@ export const getLodashTest = (req: Request, res: Response) => {
 };
 
 export const testJava = (req: Request, res: Response) => {
-  const name = 'Carlos';
+  
+  const datePP = new Date("2022-09-16T19: 39:54.241Z");
+  const datePP2 = Date.parse("2022- 09-16T19: 39:54.241Z");
+ 
+  const data = [
+    ['firstName', 'pepe' as string],
+    ['lastName', 3]
+  ]  as const
+  const jsonS = JSON.stringify(data);
+  const result = Object.fromEntries(data);
+
+  console.log(result);
+  // expected output: Object { foo: "bar", baz: 42 }
+  const name = req.params.name;
+  const test1 = name === undefined ? 'Is undefined' : 'NOT';
+  const test2 = isEmpty(name) ? 'Is Empty' : 'NOT';
+
 
   const entityToPopulate = 'Deal,Firm,UserMetadata';
 
@@ -80,6 +96,22 @@ export const getAWSUrlQueue = async (req: Request, res: Response) => {
  * @returns is we can parse to JSON
  */
 export const postMessage = async (req: any, res: Response) => {
+
+  // interface LooseObject {
+  //   [key: string]: any;
+  // }
+
+  // var obj: LooseObject = {};
+  // obj.pp = 1;
+
+  // var objTest: Record<string,any> = {}
+  // objTest.asasa= 1;
+
+  // var obj:any = {}
+  // obj.prop = 5;
+  // obj.prop2 = "Leo";
+  // console.log(obj.propa)
+  
   console.log('!!!!!START');
   var messageType = req.header('x-amz-sns-message-type');
   if (messageType && messageType !== MESSAGE.NOTIFICATION) {

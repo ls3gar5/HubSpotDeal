@@ -12,4 +12,5 @@ router.get('/aws/queues/list', healthcheck.getAWSListQueues)
 router.post('/aws/queues/mysns',healthcheck.getSuscriptionUnsubscribeConfirm, healthcheck.postMessage)
 
 
+
 export default router;
