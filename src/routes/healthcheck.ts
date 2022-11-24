@@ -11,6 +11,7 @@ router.get('/aws/queues/url', healthcheck.getAWSUrlQueue)
 router.get('/aws/queues/list', healthcheck.getAWSListQueues)
 router.post('/aws/queues/mysns',healthcheck.getSuscriptionUnsubscribeConfirm, healthcheck.postMessage)
 
-
+router.post('/producer', healthcheck.producedRabbitMQ)
+router.post('/consumer', healthcheck.consumerRabbitMQ)
 
 export default router;
