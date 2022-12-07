@@ -30,6 +30,30 @@ export const getLodashTest = (req: Request, res: Response) => {
 };
 
 export const testJava = (req: Request, res: Response) => {
+
+  const deliveryTag = 11;
+  const parsedMessage = 'Lalala';
+  const notificationErrorMessage = 'Esto no funca!!!';
+
+  const testMessage = {
+    event: 'DCR_FORM_CREATE_PROCESS_ERROR',
+    details: `Current message number ${deliveryTag}: ${parsedMessage} - Parse/DataBase Error: ${notificationErrorMessage}`
+  };
+
+  console.log(testMessage);
+
+  console.log(JSON.stringify(testMessage));
+
+  const object1 = {
+    name: 'somestring',
+    edge: 42
+  };
+  console.log('Object.entries(object1)', Object.entries(object1));
+  for (const [key, value] of Object.entries(object1)) {
+    console.log(`${key}: ${value}`);
+  }
+
+
   
   // const users: string = '{\"updatedRecord\":{\"id\":\"bf0eb206-ec56-11e9-81b4-2a2ae2dbcce5\",\"name\":\"ILL BE BACK II NAAAA\",\"type\":\"M_N_A\",\"companyName\":\"Facebook\",\"companyAddress\":\"Menlo Park, CA 94025\",\"companyAgent\":\"Mark Zuckerberg\",\"ownerId\":\"7c38e9d6-ee8d-11e9-834b-2a2ae2dbcce4\",\"mode\":\"regular\",\"projectName\":\"\",\"private\":true,\"status\":true,\"createdAt\":\"2022-10-24T17:14:59.247Z\",\"updatedAt\":\"2022-11-03T14:18:34.245Z\",\"DealOwner\":{\"id\":\"7c38e9d6-ee8d-11e9-834b-2a2ae2dbcce4\",\"firstName\":\"Dean\",\"lastName\":\"Donovan\",\"email\":\"ddonovan@foleman.com\",\"isCustomer\":true,\"platformRole\":\"user\",\"preferences\":{\"maxDealCreation\":5},\"active\":true,\"totpKey\":null,\"lastLoginAt\":\"2022-11-02T19:19:00.872Z\",\"prospectId\":null,\"displayName\":\"\",\"createdAt\":\"2022-10-24T17:14:58.290Z\",\"updatedAt\":\"2022-11-02T19:19:00.876Z\",\"deletedAt\":null},\"UserDeal\":{}},\"previousRecord\":{\"id\":\"bf0eb206-ec56-11e9-81b4-2a2ae2dbcce5\",\"name\":\"ILL BE BACK II\",\"type\":\"M_N_A\",\"companyName\":\"Facebook\",\"companyAddress\":\"Menlo Park, CA 94025\",\"companyAgent\":\"Mark Zuckerberg\",\"ownerId\":\"7c38e9d6-ee8d-11e9-834b-2a2ae2dbcce4\",\"mode\":\"regular\",\"projectName\":\"\",\"private\":true,\"status\":true,\"createdAt\":\"2022-10-24T17:14:59.247Z\",\"updatedAt\":\"2022-11-03T14:17:03.581Z\",\"DealOwner\":{\"id\":\"7c38e9d6-ee8d-11e9-834b-2a2ae2dbcce4\",\"firstName\":\"Dean\",\"lastName\":\"Donovan\",\"email\":\"ddonovan@foleman.com\",\"isCustomer\":true,\"platformRole\":\"user\",\"preferences\":{\"maxDealCreation\":5},\"active\":true,\"totpKey\":null,\"lastLoginAt\":\"2022-11-02T19:19:00.872Z\",\"prospectId\":null,\"displayName\":\"\",\"createdAt\":\"2022-10-24T17:14:58.290Z\",\"updatedAt\":\"2022-11-02T19:19:00.876Z\",\"deletedAt\":null}},\"action\":\"update\",\"dataBase\":\"Users\",\"entity\":\"Deal\",\"entityId\":\"bf0eb206-ec56-11e9-81b4-2a2ae2dbcce5\",\"updatedBy\":null,\"updatedAt\":\"2022-11-03T14:18:34.258Z\",\"impersonate\":{\"userId\":\"\",\"date\":\"1700-02-25T00:00:00.000Z\"}}';
 
