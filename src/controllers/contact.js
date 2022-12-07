@@ -3,7 +3,7 @@ import request from 'request-promise';
 import dotenv from 'dotenv';
 dotenv.config();
 
-const hubspotClient = new Client({ "apiKey": process.env.HUBSPOT_KEY });
+const hubspotClient = new Client({ accessToken: process.env.HUBSPOT_ACCESS_TOKEN });
 const limit = 10;
 const after = 0;
 const properties = undefined;
