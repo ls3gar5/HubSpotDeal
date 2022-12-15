@@ -5,6 +5,8 @@ import Axios from 'axios';
 import { MESSAGE } from '../../src/types/message';
 import { IsJsonString } from '../../src/crosscutting/stringExtention/jsonValidation';
 import amqp from 'amqplib';
+import TransportFactory from '../services/trasnportFactory';
+import { TransportType } from '../services/transport';
 
 export function getHealthCheck(req: any, res: any) {
   return res.json({
@@ -31,6 +33,12 @@ export const getLodashTest = (req: Request, res: Response) => {
 
 export const testJava = (req: Request, res: Response) => {
 
+  const transportDeliver = new TransportFactory();
+  const truck = transportDeliver.create(TransportType.truck);
+  const result = truck.deliver("What you see is waht you have!!");
+  console.log(result);
+
+  
   const deliveryTag = 11;
   const parsedMessage = 'Lalala';
   const notificationErrorMessage = 'Esto no funca!!!';
