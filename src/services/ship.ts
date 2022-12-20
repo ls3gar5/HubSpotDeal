@@ -1,4 +1,4 @@
-import { DataQueue, DOMAIN, ENTITY, Transport } from "./transport"
+import { DataQueue, Domain, Entity, Transport } from "./transport"
 
 export class Ship implements Transport {
     constructor() {
@@ -7,11 +7,11 @@ export class Ship implements Transport {
 
     deliver(msg: string): DataQueue {
         return {
-            domain: DOMAIN.COMPLIANCE,
+            domain: Domain.COMPLIANCE,
             createdAt: new Date(),
             data: [
               {
-                entity: ENTITY.FORM,
+                entity: Entity.FORM,
                 action: 'UPDATE',
                 timeStamp: new Date(),
                 previousEntityData: JSON.stringify(msg),

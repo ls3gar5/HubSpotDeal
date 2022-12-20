@@ -1,14 +1,16 @@
-import { Transport, TransportCreateFactory, TransportType } from "./transport"
-import { Truck } from "./truck"
-import { Ship } from "./ship"
+import { ExtractInstanceType, Keys, transportMap, TransportTypes } from "./transport"
 
-export class TransportFactory implements TransportCreateFactory {
+export class TransportFactory {
 
     constructor() { }
 
-    create(transportType: TransportType): Transport { 
-        if(transportType === TransportType.truck) return new Truck();
-        if(transportType === TransportType.ship) return new Ship();
+    create(k: Keys): ExtractInstanceType<TransportTypes> { 
+
+        // if(transportType === TransportType.truck) return new Truck();
+        // if(transportType === TransportType.ship) return new Ship();
+        
+       return new transportMap[k]();
+        
     }
 }
 

@@ -1,13 +1,16 @@
-export const enum TransportType {
-    truck= "Truck",
-    ship= "Ship"
+import { Ship } from "./ship";
+import { Truck } from "./truck";
+
+export const enum TransportEnumType {
+    truck= "truck",
+    ship= "ship"
 }
 
-export const enum DOMAIN {
+export const enum Domain {
     COMPLIANCE = 'compliance'
 }
   
-export const enum ENTITY {
+export const enum Entity {
     FORM = 'Form',
     NOTES = 'Notes',
     REVIEWER = 'Reviewer',
@@ -15,7 +18,7 @@ export const enum ENTITY {
 }
   
 export type DataEntity = {
-    entity: ENTITY;
+    entity: Entity;
     action: string;
     timeStamp: Date;
     previousEntityData: string;
@@ -23,7 +26,7 @@ export type DataEntity = {
 };
 
 export type DataQueue = {
-    domain: DOMAIN;
+    domain: Domain;
     createdAt: Date;
     data: DataEntity[];
 };
@@ -33,6 +36,16 @@ export interface Transport {
 }
 
 export interface TransportCreateFactory {
-    create(transportType: TransportType): Transport;
+    create(transportType: TransportEnumType): Transport;
 }
 
+export const transportMap = {
+    truck:  Truck,
+    ship: Ship
+}
+
+export type Keys = keyof typeof transportMap;
+
+export type TransportTypes = typeof transportMap[Keys];
+
+export type ExtractInstanceType<T> = T extends new () => infer R ? R : never;
