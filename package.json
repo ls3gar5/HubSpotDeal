@@ -7,7 +7,7 @@
     "dev": "nodemon dist/index.js",
     "start": "nodemon",
     "build": "tsc",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "keywords": [],
   "author": "",
@@ -15,8 +15,8 @@
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
     "@hubspot/api-client": "^6.0.1-beta.6",
-    "@types/node-fetch": "^2.6.2",
     "@types/express-serve-static-core": "4.17.30",
+    "@types/node-fetch": "^2.6.2",
     "amqplib": "^0.10.3",
     "aws-sdk": "^2.1207.0",
     "axios": "^0.27.2",
@@ -41,6 +41,8 @@
     "@types/lodash": "^4.14.184",
     "@types/morgan": "^1.9.3",
     "@types/node": "^18.11.2",
+    "chai": "^4.3.7",
+    "mocha": "^10.2.0",
     "nodemon": "^2.0.15",
     "ts-node": "^10.9.1",
     "tslib": "^2.4.0"

@@ -14,4 +14,6 @@ router.post('/aws/queues/mysns',healthcheck.getSuscriptionUnsubscribeConfirm, he
 router.post('/producer', healthcheck.producedRabbitMQ)
 router.post('/consumer', healthcheck.consumerRabbitMQ)
 
+router.get('/destructuring', healthcheck.destructuring)
+
 export default router;

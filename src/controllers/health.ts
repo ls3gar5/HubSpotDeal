@@ -32,13 +32,11 @@ export const getLodashTest = (req: Request, res: Response) => {
 };
 
 export const testJava = (req: Request, res: Response) => {
-
   const transportDeliver = new TransportFactory();
   const truck = transportDeliver.create(TransportType.truck);
-  const result = truck.deliver("What you see is waht you have!!");
+  const result = truck.deliver('What you see is waht you have!!');
   console.log(result);
 
-  
   const deliveryTag = 11;
   const parsedMessage = 'Lalala';
   const notificationErrorMessage = 'Esto no funca!!!';
@@ -61,8 +59,6 @@ export const testJava = (req: Request, res: Response) => {
     console.log(`${key}: ${value}`);
   }
 
-
-  
   // const users: string = '{\"updatedRecord\":{\"id\":\"bf0eb206-ec56-11e9-81b4-2a2ae2dbcce5\",\"name\":\"ILL BE BACK II NAAAA\",\"type\":\"M_N_A\",\"companyName\":\"Facebook\",\"companyAddress\":\"Menlo Park, CA 94025\",\"companyAgent\":\"Mark Zuckerberg\",\"ownerId\":\"7c38e9d6-ee8d-11e9-834b-2a2ae2dbcce4\",\"mode\":\"regular\",\"projectName\":\"\",\"private\":true,\"status\":true,\"createdAt\":\"2022-10-24T17:14:59.247Z\",\"updatedAt\":\"2022-11-03T14:18:34.245Z\",\"DealOwner\":{\"id\":\"7c38e9d6-ee8d-11e9-834b-2a2ae2dbcce4\",\"firstName\":\"Dean\",\"lastName\":\"Donovan\",\"email\":\"ddonovan@foleman.com\",\"isCustomer\":true,\"platformRole\":\"user\",\"preferences\":{\"maxDealCreation\":5},\"active\":true,\"totpKey\":null,\"lastLoginAt\":\"2022-11-02T19:19:00.872Z\",\"prospectId\":null,\"displayName\":\"\",\"createdAt\":\"2022-10-24T17:14:58.290Z\",\"updatedAt\":\"2022-11-02T19:19:00.876Z\",\"deletedAt\":null},\"UserDeal\":{}},\"previousRecord\":{\"id\":\"bf0eb206-ec56-11e9-81b4-2a2ae2dbcce5\",\"name\":\"ILL BE BACK II\",\"type\":\"M_N_A\",\"companyName\":\"Facebook\",\"companyAddress\":\"Menlo Park, CA 94025\",\"companyAgent\":\"Mark Zuckerberg\",\"ownerId\":\"7c38e9d6-ee8d-11e9-834b-2a2ae2dbcce4\",\"mode\":\"regular\",\"projectName\":\"\",\"private\":true,\"status\":true,\"createdAt\":\"2022-10-24T17:14:59.247Z\",\"updatedAt\":\"2022-11-03T14:17:03.581Z\",\"DealOwner\":{\"id\":\"7c38e9d6-ee8d-11e9-834b-2a2ae2dbcce4\",\"firstName\":\"Dean\",\"lastName\":\"Donovan\",\"email\":\"ddonovan@foleman.com\",\"isCustomer\":true,\"platformRole\":\"user\",\"preferences\":{\"maxDealCreation\":5},\"active\":true,\"totpKey\":null,\"lastLoginAt\":\"2022-11-02T19:19:00.872Z\",\"prospectId\":null,\"displayName\":\"\",\"createdAt\":\"2022-10-24T17:14:58.290Z\",\"updatedAt\":\"2022-11-02T19:19:00.876Z\",\"deletedAt\":null}},\"action\":\"update\",\"dataBase\":\"Users\",\"entity\":\"Deal\",\"entityId\":\"bf0eb206-ec56-11e9-81b4-2a2ae2dbcce5\",\"updatedBy\":null,\"updatedAt\":\"2022-11-03T14:18:34.258Z\",\"impersonate\":{\"userId\":\"\",\"date\":\"1700-02-25T00:00:00.000Z\"}}';
 
   // const userList = JSON.parse(users);
@@ -81,9 +77,23 @@ export const testJava = (req: Request, res: Response) => {
 
   // const datePP = new Date("2022-09-16T19: 39:54.241Z");
   // const datePP2 = Date.parse("2022- 09-16T19: 39:54.241Z");
- 
-  const data ={"action": "update","dataBase": "Users","entity": "Users","entityId": "bf0eb206-ec56-11e9-81b4-2a2ae2dbcce4","updatedBy": "5199e37e-ee8d-11e9-81b4-2a2ae2dbcce4","updatedAt": "2022-09-16T19:39:54.241Z","previousRecord":{"firstName": "Pepe 1"},"updatedRecord": {"firstName": "Pepe 2"},"impersonate": {"userId": "5199e37e-ee8d-11e9-81b4-2a2ae2dbcce4","date": "2022-09-16T19:39:54.241Z"}};
-  const jsonS = '{"action":"update","dataBase":"Users","entity":"Users","entityId":"bf0eb206-ec56-11e9-81b4-2a2ae2dbcce4","updatedBy":"5199e37e-ee8d-11e9-81b4-2a2ae2dbcce4","updatedAt":"2022-09-16T19:39:54.241Z","previousRecord":{"firstName":"Pepe 1"},"updatedRecord":{"firstName":"Pepe 2"},"impersonate":{"userId":"5199e37e-ee8d-11e9-81b4-2a2ae2dbcce4","date":"2022-09-16T19:39:54.241Z"}}';
+
+  const data = {
+    action: 'update',
+    dataBase: 'Users',
+    entity: 'Users',
+    entityId: 'bf0eb206-ec56-11e9-81b4-2a2ae2dbcce4',
+    updatedBy: '5199e37e-ee8d-11e9-81b4-2a2ae2dbcce4',
+    updatedAt: '2022-09-16T19:39:54.241Z',
+    previousRecord: { firstName: 'Pepe 1' },
+    updatedRecord: { firstName: 'Pepe 2' },
+    impersonate: {
+      userId: '5199e37e-ee8d-11e9-81b4-2a2ae2dbcce4',
+      date: '2022-09-16T19:39:54.241Z'
+    }
+  };
+  const jsonS =
+    '{"action":"update","dataBase":"Users","entity":"Users","entityId":"bf0eb206-ec56-11e9-81b4-2a2ae2dbcce4","updatedBy":"5199e37e-ee8d-11e9-81b4-2a2ae2dbcce4","updatedAt":"2022-09-16T19:39:54.241Z","previousRecord":{"firstName":"Pepe 1"},"updatedRecord":{"firstName":"Pepe 2"},"impersonate":{"userId":"5199e37e-ee8d-11e9-81b4-2a2ae2dbcce4","date":"2022-09-16T19:39:54.241Z"}}';
   // const str = '"{\"action\": \"update\",\"dataBase\": \"Users\",\"entity\": \"Users\",\"entityId\": \"bf0eb206-ec56-11e9-81b4-2a2ae2dbcce4\",\"updatedBy\": \"5199e37e-ee8d-11e9-81b4-2a2ae2dbcce4\",\"updatedAt\": \"2022-09-16T19:39:54.241Z\",\"previousRecord\":{\"firstName\": \"Pepe 1\"},\"updatedRecord\": {\"firstName\": \"Pepe 2\"},\"impersonate\": {\"userId\": \"5199e37e-ee8d-11e9-81b4-2a2ae2dbcce4\",\"date\": \"2022-09-16T19:39:54.241Z\"}}"'
   const obj = JSON.parse(jsonS);
   // const result = Object.fromEntries(data);
@@ -93,7 +103,6 @@ export const testJava = (req: Request, res: Response) => {
   const name = req.params.name;
   const test1 = name === undefined ? 'Is undefined' : 'NOT';
   const test2 = isEmpty(name) ? 'Is Empty' : 'NOT';
-
 
   const entityToPopulate = 'Deal,Firm,UserMetadata';
 
@@ -144,7 +153,6 @@ export const getAWSUrlQueue = async (req: Request, res: Response) => {
  * @returns is we can parse to JSON
  */
 export const postMessage = async (req: any, res: Response) => {
-
   // interface LooseObject {
   //   [key: string]: any;
   // }
@@ -159,7 +167,7 @@ export const postMessage = async (req: any, res: Response) => {
   // obj.prop = 5;
   // obj.prop2 = "Leo";
   // console.log(obj.propa)
-  
+
   console.log('!!!!!START');
   var messageType = req.header('x-amz-sns-message-type');
   if (messageType && messageType !== MESSAGE.NOTIFICATION) {
@@ -240,72 +248,62 @@ export const getSuscriptionUnsubscribeConfirm = async (
   }
 };
 
-
-export const producedRabbitMQ = async (req: any, res: Response) => { 
-  
+export const producedRabbitMQ = async (req: any, res: Response) => {
   const isSended = await producer();
 
   res.json(`Message sended: ${isSended}`);
+};
 
-}
-
-const rabbitSetting ={
+const rabbitSetting = {
   protocol: 'amqp',
   hostname: 'localhost',
   port: 5672,
-  username:'rabbit',
-  password:'password',
-  vhost:'/'
-}
+  username: 'rabbit',
+  password: 'password',
+  vhost: '/'
+};
 
 const producer = async (): Promise<Boolean> => {
- 
   const queue = 'employees';
-  const msg = {"firstName": "Pepe 2"};
+  const msg = { firstName: 'Pepe 2' };
 
   try {
-
     // CREATE A CONNECTION
     const connect = await amqp.connect(rabbitSetting);
-    console.log("Connection Created...");
+    console.log('Connection Created...');
 
     //CREATE A CHANNEL
     const channel = await connect.createChannel();
-    console.log("Channel Created...");
+    console.log('Channel Created...');
 
     // CREATE QUEUE IF NOT EXIST
     await channel.assertQueue(queue);
 
-    const publishMSG = await channel.sendToQueue(queue,Buffer.from(
-      JSON.stringify(msg)
-    ));
+    const publishMSG = await channel.sendToQueue(queue, Buffer.from(JSON.stringify(msg)));
 
     return publishMSG;
-     
   } catch (error) {
     console.error(error);
   }
-}
+};
 
 const consumer = async (): Promise<string> => {
- 
   const queue = 'employees';
-  const msg = {"firstName": "Pepe 2"};
+  const msg = { firstName: 'Pepe 2' };
 
   try {
-
     // CREATE A CONNECTION
     const connect = await amqp.connect(rabbitSetting);
-    console.log("Connection Created...");
+    console.log('Connection Created...');
 
     //CREATE A CHANNEL
     const channel = await connect.createChannel();
-    console.log("Channel Created...");
+    console.log('Channel Created...');
 
     // CREATE QUEUE IF NOT EXIST
     await channel.assertQueue(queue);
 
-    console.log("Waiting for messages... ");
+    console.log('Waiting for messages... ');
     let message = '';
     channel.consume(queue, (currentMsj) => {
       message = JSON.parse(currentMsj.content.toString());
@@ -315,15 +313,33 @@ const consumer = async (): Promise<string> => {
     });
 
     return message;
-     
   } catch (error) {
     console.error(error);
   }
-}
-export const consumerRabbitMQ = async (req: any, res: Response) => { 
-  
+};
+export const consumerRabbitMQ = async (req: any, res: Response) => {
   const msg = await consumer();
 
   //res.json(`Message recived: ${msg}`);
+};
 
-}
+export const destructuring = async (req: any, res: Response) => {
+  const start = new Date().getTime();
+  const requestNumber = [1,2,3];
+  const [firstValue]  = requestNumber;
+  console.log(firstValue);
+  const url =
+    'https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3540&q=80';
+
+  const request = requestNumber.map(()=>  Axios({
+    method: 'GET',
+    url: url,
+    responseType: 'stream'
+  }));
+
+  const [resp1, resp2, resp3 ] = await Promise.all(request);
+
+  console.log((new Date().getTime() - start) / 1000, ' seconds');
+  console.log('FINSH');
+  return res.json('Okis');
+};
