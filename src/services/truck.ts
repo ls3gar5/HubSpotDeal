@@ -1,15 +1,15 @@
-import { DataQueue, DOMAIN, ENTITY, Transport } from "./transport"
+import { DataQueue, Domain, Entity, Transport } from "./transport"
 
 export class Truck implements Transport {
     constructor() {}
 
     deliver(msg: string): DataQueue {
         return {
-            domain: DOMAIN.COMPLIANCE,
+            domain: Domain.COMPLIANCE,
             createdAt: new Date(),
             data: [
               {
-                entity: ENTITY.FORM,
+                entity: Entity.FORM,
                 action: 'CREATE',
                 timeStamp: new Date(),
                 previousEntityData: JSON.stringify(msg),
