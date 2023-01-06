@@ -2,11 +2,12 @@ import { Request, Response, NextFunction } from 'express';
 import { isEmpty, each, get, keys } from 'lodash';
 import { getListQueues, getURLQueue } from '../services/AWSservice';
 import Axios from 'axios';
-import { MESSAGE } from '../../src/types/message';
-import { IsJsonString } from '../../src/crosscutting/stringExtention/jsonValidation';
+import { MESSAGE } from '../types/message';
+import { IsJsonString } from '../crosscutting/stringExtention/jsonValidation';
 import amqp from 'amqplib';
 import TransportFactory from '../services/trasnportFactory';
 import { TransportEnumType } from '../services/transport';
+import HeathBusisness from '../../src/busisness/health';
 
 export function getHealthCheck(req: any, res: any) {
   return res.json({
@@ -32,10 +33,7 @@ export const getLodashTest = (req: Request, res: Response) => {
 };
 
 export const testJava = (req: Request, res: Response) => {
-  const transportDeliver = new TransportFactory();
-  const truck = transportDeliver.create(TransportEnumType.ship);
-  const result = truck.deliver("What you see is waht you have!!");
-  console.log(result);
+ 
 
   const deliveryTag = 11;
   const parsedMessage = 'Lalala';
@@ -117,6 +115,12 @@ export const testJava = (req: Request, res: Response) => {
   });
 };
 
+export const pattern = (req: Request, res: Response) => {
+  const transportDeliver = new TransportFactory();
+  const truck = transportDeliver.create(TransportEnumType.ship);
+  const result = truck.deliver("What you see is waht you have!!");
+  console.log(result);
+}
 export const getAWSListQueues = async (req: Request, res: Response) => {
   try {
     let list: String[] = await getListQueues();
@@ -324,22 +328,8 @@ export const consumerRabbitMQ = async (req: any, res: Response) => {
 };
 
 export const destructuring = async (req: any, res: Response) => {
-  const start = new Date().getTime();
-  const requestNumber = [1,2,3];
-  const [firstValue]  = requestNumber;
-  console.log(firstValue);
-  const url =
-    'https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3540&q=80';
+ 
+  await HeathBusisness.getUrl();
 
-  const request = requestNumber.map(()=>  Axios({
-    method: 'GET',
-    url: url,
-    responseType: 'stream'
-  }));
-
-  const [resp1, resp2, resp3 ] = await Promise.all(request);
-
-  console.log((new Date().getTime() - start) / 1000, ' seconds');
-  console.log('FINSH');
-  return res.json('Okis');
+  return res.json(`FINSHseconds`);
 };
