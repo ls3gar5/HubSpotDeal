@@ -1,6 +1,6 @@
 const assert = require('chai').assert;
 const expect = require('chai').expect;
-const app = require('../test');
+const app = require('../src/IETest/test');
 
 describe('App', function() {
     it('app should return hello', function() {

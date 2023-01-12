@@ -1,0 +1,8 @@
+{
+    "extension": ["js", "ts"],
+    "package": "./package.json",
+    "timeout": 20000,
+    "require": "ts-node/register",
+    "recursive": true
+  }
+  

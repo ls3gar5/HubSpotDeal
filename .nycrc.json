@@ -1,0 +1,12 @@
+{
+    "extension": [
+      ".js",
+      ".ts"
+    ],
+    "exclude": [
+      "**/*.d.ts",
+      "test"
+    ],
+    "check-coverage": true,
+    "lines": 80
+  }
