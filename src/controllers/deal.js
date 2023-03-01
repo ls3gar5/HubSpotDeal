@@ -10,7 +10,7 @@ export async function getdeals(req, res) {
     const propertiesWithHistory = undefined;
     const associations = undefined;
     const archived = false;
-
+    limit = 'my name';
 
     try {
         const apiResponse = await hubspotClient.crm.deals.basicApi.getPage(limit, after, properties, propertiesWithHistory, associations, archived);

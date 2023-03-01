@@ -9,9 +9,14 @@ import TransportFactory from '../services/trasnportFactory';
 import { TransportEnumType } from '../services/transport';
 import HeathBusisness from '../../src/busisness/health';
 
-export function getHealthCheck(req: any, res: any) {
+export async function getHealthCheck(req: any, res: any) {
+  
+  var result = await HeathBusisness.getUser('1111');
+  
+  
   return res.json({
-    message: 'ok!!!'
+    message: 'ok!!!',
+    user: result
   });
 }
 

@@ -6,3 +6,10 @@ export const MESSAGE = {
   SUBSCRIPTIONCONFIRMATION: 'SubscriptionConfirmation',
   UNSUBSCRIBECONFIRMATION: 'UnsubscribeConfirmation'
 };
+
+
+export interface User {
+  firstName: string;
+  lastName: string;
+  accountBalance: number;
+}

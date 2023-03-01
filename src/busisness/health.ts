@@ -1,6 +1,6 @@
+import {User} from '../types/message';
 import Axios from 'axios';
 import BadRequestError from '../../src/error/BadRequestError';
-import { MyError } from "../../src/error/error";
 
 class HeathBusisness {
     /**
@@ -57,6 +57,13 @@ class HeathBusisness {
       });
 
       return promise;
+    }
+
+    public getUser(id: string): Promise<User> {
+      var user = new Promise<User>((resolve, reject) => {
+        resolve( { firstName: 'Leo', lastName: 'Seg', accountBalance: 1000}  as User)
+      });
+      return user;
     }
 
  }
